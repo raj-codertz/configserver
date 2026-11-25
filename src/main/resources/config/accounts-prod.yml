@@ -1,0 +1,13 @@
+build:
+  version: 4.0
+
+accounts:
+  message: "Welcome to eazybank accounts related Prod APIs"
+  contact-details:
+    name: "Rajabu Shabani - Developer"
+    email: "rajabujshabani@gmail.com"
+  on-call-support:
+    - 0763229911
+
+server:
+  port: 8081

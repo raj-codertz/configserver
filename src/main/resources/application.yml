@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: configserver
+  profiles:
+    active:
+#      - native this is for class path and file system location
+      - git
+  cloud:
+    config:
+      server:
+        git:
+          uri: "https://github.com/eazybytes/eazybytes-config.git"
+          default-label: main
+          timeout: 5
+          clone-on-start: true
+          force-pull: true 
+        monitor:
+          validation-filter-enabled: false
+
+#        native:
+#          search-locations:
+#            - "file:/Users/rajabushabani/Documents/Config"
+#          search-locations:
+#            - classpath:/config
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: "guest"
+    password: "guest"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+
+server:
+  port: 8071
+encrypt:
+  key: "5f22fae573f7b9092da02b42c4be753463389eb7cc9ffc4d58b5e27f2045fb76"
+
+
+logging:
+  pattern:
+    console: ${CONSOLE_LOG_PATTERN:%green(%d{HH:mm:ss.SSS}) %blue(%-5level) %red([%thread]) %yellow(%logger{15}) - %cyan(%msg%n)}
